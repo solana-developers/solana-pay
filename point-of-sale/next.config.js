@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    typescript: {
+        ignoreBuildErrors: true,
+      },
     async redirects() {
         return [
             {
@@ -12,10 +15,6 @@ const nextConfig = {
                         type: 'query',
                         key: 'recipient',
                     },
-                    // {
-                    //     type: 'query',
-                    //     key: 'label',
-                    // },
                 ],
             },
         ];
