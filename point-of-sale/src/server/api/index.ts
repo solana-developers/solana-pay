@@ -90,8 +90,8 @@ const post: NextApiHandler<PostResponse> = async (request, response) => {
         TOKEN_2022_PROGRAM_ID
     );
 
+    // Check if recipient token account exists. If not, add instruction to create it.
     let recipientTokenAccount = await connection.getAccountInfo(recipientTokenAccountAddress);
-
     if (recipientTokenAccount == null) {
         const createTokenAccountInstruction = createAssociatedTokenAccountInstruction(
             sender, // payer
